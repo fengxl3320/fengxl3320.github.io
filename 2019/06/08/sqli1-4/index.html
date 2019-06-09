@@ -2,11 +2,6 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -19,17 +14,17 @@
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqli1-4">
-<meta property="og:url" content="http://yoursite.com/2019/06/08/sqli1-4/index.html">
+<meta property="og:url" content="https://fengxl3320.github.io/2019/06/08/sqli1-4/index.html">
 <meta property="og:site_name" content="l3ef&#39;s blog">
 <meta property="og:description" content="通过sqli输入mysql的手工注入、python以及sqlmap相关知识。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/.com//sqli/less-1-1.png">
-<meta property="og:image" content="http://yoursite.com/.com//sqli/less-1-2.png">
-<meta property="og:updated_time" content="2019-06-08T09:02:20.813Z">
+<meta property="og:image" content="https://fengxl3320.github.io/.io//less-1-1.png">
+<meta property="og:image" content="https://fengxl3320.github.io/.io//less-1-2.png">
+<meta property="og:updated_time" content="2019-06-09T00:28:41.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqli1-4">
 <meta name="twitter:description" content="通过sqli输入mysql的手工注入、python以及sqlmap相关知识。">
-<meta name="twitter:image" content="http://yoursite.com/.com//sqli/less-1-1.png">
+<meta name="twitter:image" content="https://fengxl3320.github.io/.io//less-1-1.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -51,7 +46,7 @@
 
 
     <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/black/pace-theme-minimal.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="/css/style.css">
@@ -77,7 +72,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
+        search: true
     }
 </script>
 
@@ -112,6 +107,13 @@
         
 
         
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
 
 
         
@@ -126,16 +128,6 @@
                             <div class="ribbon"></div>
                         </div>
                         
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
                         
                     </div>
                     
@@ -146,10 +138,6 @@
                         <li>菜单</li>
                         <li>标签</li>
                         
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -164,22 +152,18 @@
                         
                             <li><a href="/">主页</a></li>
                         
-                            <li><a href="/archives/">所有文章</a></li>
+                            <li><a href="/archives/">归档</a></li>
                         
-                            <li><a href="/tags/">标签云</a></li>
+                            <li><a href="/tags/">标签</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
+                            <li><a href="/about/">关于</a></li>
                         
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" href="#" title="GitHub"></a>
-                            
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                                <a class="fa Email" href="mailto:love_3556@qq.com" title="Email"></a>
                             
                         </ul>
                     </nav>
@@ -194,25 +178,7 @@
                 
                 
                 
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于前端</div>
-                </section>
                 
             </div>
         </div>
@@ -241,11 +207,11 @@
                 
                     <li><a href="/">主页</a></li>
                 
-                    <li><a href="/archives/">所有文章</a></li>
+                    <li><a href="/archives/">归档</a></li>
                 
-                    <li><a href="/tags/">标签云</a></li>
+                    <li><a href="/tags/">标签</a></li>
                 
-                    <li><a href="/about/">关于我</a></li>
+                    <li><a href="/about/">关于</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -253,11 +219,7 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                                <a class="fa Email" target="_blank" href="mailto:love_3556@qq.com" title="Email"></a>
                             
                         </ul>
             </nav>
@@ -310,8 +272,8 @@
       
           
         <h3 id="less-1"><a href="#less-1" class="headerlink" title="less-1"></a>less-1</h3><p>字符报错注入，通过id可以遍历所有用户及密码。</p>
-<p><img src="/.com//sqli/less-1-1.png" alt></p>
-<p><img src="/.com//sqli/less-1-2.png" alt="单引号报错信息"></p>
+<p><img src="/.io//less-1-1.png" alt></p>
+<p><img src="/.io//less-1-2.png" alt="单引号报错信息"></p>
 <p>后台可能的源代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select username,password from users where id=&apos;1&apos; limit 0,1;</span><br></pre></td></tr></table></figure>
 
@@ -322,21 +284,6 @@
   </div>
   
     
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/06/08/sqli1-4/">sqli1-4</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">l3ef</a></p>
-        <p><span>发布时间:</span>2019-06-08, 15:56:45</p>
-        <p><span>最后更新:</span>2019-06-08, 17:02:20</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/06/08/sqli1-4/" title="sqli1-4">http://yoursite.com/2019/06/08/sqli1-4/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/06/08/sqli1-4/　　作者: l3ef" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
 
 
     <nav id="article-nav">
@@ -378,31 +325,6 @@
 
 
 
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"sqli1-4　| l3ef's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
 
 
     
@@ -438,7 +360,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2019 l3ef
+                2019 l3ef
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
@@ -478,7 +400,7 @@
                 $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
             }
             else {
-                var backgroundnum = 5;
+                var backgroundnum = 2;
                 var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }
@@ -502,7 +424,7 @@
             
             
             
-            
+             categories: ".article-category a, a.tag-list-link", 
             
              archives: ".archive-article-title", 
              miniArchives: "a.post-list-link", 
